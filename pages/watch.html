@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Youtube Iframe Api Test</title>
+		<link rel="stylesheet" href="/static/style.css">
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap" rel="stylesheet">
+	</head>
+	<body>
+		<div title="Example: DTgVOR4mrFY, https://www.youtube.com/watch?v=DTgVOR4mrFY">
+			<label for="video_source" >youtube video id or url : </label>
+			<input type="text" name="video_source" id="video_source">
+			<input onclick="videoid_yt_enter()" type="button" value="ok"><br><br>
+		</div>
+		<div id="ytplayer"></div><br><br>
+		<div id="controls">
+			<div>
+				<label for="scroll_yt" id="display_scroll_yt">00:00:00 of 00:00:00 : </label>
+				<input type="range" name="scroll_yt" id="scroll_yt" min="0" max="100" value="0" style="width: 500px;" onmousedown="scroll_yt_down()" onmouseup="scroll_yt_up()" onchange="scroll_yt_change()"><br>
+			</div>
+			<div>
+				<button id="play" onclick="playvideo_yt()">play</button>
+				<button id="pause" onclick="pausevideo_yt()">pause</button>
+				<button id="mute" onclick="mute_video_yt()">mute</button>
+				<button id="unmute" onclick="unmute_video_yt()">unmute</button>
+				<button id="back_to_start" onclick="back_to_start_yt()">back to start</button>
+				<button id="go_to_end" onclick="go_to_end_yt()">go to end</button><br>
+			</div>
+			<div>
+				<label for="loop_yt">loop : </label>
+				<input type="checkbox" name="loop_yt" onclick="loop_video_yt()" id="loop_yt">
+			</div>
+			<div>
+				<label for="volume_yt" id="display_volume_yt">volume 0 : </label>
+				<input type="range" name="volume_yt" id="volume_yt" min="0" max="100" value="100" onchange="volume_yt_change()">
+			</div>
+			<div>
+				<label for="video_timed">video time : </label>
+				<input type="number" name="video_timed" id="video_timed">
+				<input type="button" value="go" onclick="video_timed_change()">
+			</div>
+		</div>
+		<br><a class="source" href="https://developers.google.com/youtube/iframe_api_reference" target="_blank">source : https://developers.google.com/youtube/iframe_api_reference</a>
+		<script src="/static/script.js"></script>
+	</body>
+</html>

@@ -1,0 +1,23 @@
+body {
+    background-color: black;
+    color: white;
+    font-family: 'Poppins', sans-serif;
+}
+
+#controls {
+    display: none;
+}
+
+.source {
+    text-decoration: none;
+    color: #ffffff;
+    transition: 0.2s;
+}
+
+.source:hover {
+    color: #bebebe;
+}
+
+button,input {
+    font-family: 'Poppins', sans-serif;
+}
