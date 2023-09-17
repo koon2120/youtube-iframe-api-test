@@ -8,9 +8,22 @@
 		<link rel="preconnect" href="https://fonts.googleapis.com">
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 		<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap" rel="stylesheet">
+		<link rel="shortcut icon" href="/static/yiat-logo.png" type="image/x-icon">
+		<meta name="description" content="test for youtube iframe api by koon2120" />
+		<meta property="og:title" content="Youtube Iframe Api Test" />
+		<meta property="og:description" content="test for youtube iframe api by koon2120" />
+		<meta property="og:type" content="website" />
+		<meta property="og:url" content="https://youtube-iframe-api-test.vercel.app/" />
+		<meta property="og:site_name" content="Youtube Iframe Api Test" />
+		<meta property="og:image" content="https://youtube-iframe-api-test.vercel.app/static/yiat-logo-bg-black.png" />
+		<meta name="twitter:card" content="summary_large_image" />
+		<meta name="twitter:title" content="Youtube Iframe Api Test" />
+		<meta name="twitter:description" content="test for youtube iframe api by koon2120" />
+		<meta name="twitter:url" content="https://youtube-iframe-api-test.vercel.app/" />
+		<meta name="twitter:image" content="https://youtube-iframe-api-test.vercel.app/static/yiat-logo-bg-black.png" />
 	</head>
 	<body>
-		<div title="Example: DTgVOR4mrFY, https://www.youtube.com/watch?v=DTgVOR4mrFY">
+		<div title="Example: bHQqvYy5KYo, https://www.youtube.com/watch?v=bHQqvYy5KYo">
 			<label for="video_source" >youtube video id or url : </label>
 			<input type="text" name="video_source" id="video_source">
 			<input onclick="videoid_yt_enter()" type="button" value="ok"><br><br>
@@ -29,15 +42,17 @@
 				<button id="back_to_start" onclick="back_to_start_yt()">back to start</button>
 				<button id="go_to_end" onclick="go_to_end_yt()">go to end</button><br>
 			</div>
-			<div>
+			<div class="inline">
 				<label for="loop_yt">loop : </label>
 				<input type="checkbox" name="loop_yt" onclick="loop_video_yt()" id="loop_yt">
+				<p class="inline_br"> | </p>
 			</div>
-			<div>
-				<label for="volume_yt" id="display_volume_yt">volume 0 : </label>
+			<div class="inline">
+				<label for="volume_yt" id="display_volume_yt">volume 0% : </label>
 				<input type="range" name="volume_yt" id="volume_yt" min="0" max="100" value="100" onchange="volume_yt_change()">
+				<p class="inline_br"> | </p>
 			</div>
-			<div>
+			<div class="inline">
 				<label for="video_timed">video time : </label>
 				<input type="number" name="video_timed" id="video_timed">
 				<input type="button" value="go" onclick="video_timed_change()">

@@ -159,7 +159,7 @@ function go_to_end_yt() {
 start_status = 0
 function onPlayerStateChange(event) {
   if (start_status != 1) {
-    document.getElementById("display_volume_yt").innerHTML = "volume " + player.getVolume() + " : "
+    document.getElementById("display_volume_yt").innerHTML = "volume " + player.getVolume() + "% : "
     start_status = 1
   }
   if (event.data == YT.PlayerState.PLAYING) {
@@ -175,6 +175,7 @@ function onPlayerStateChange(event) {
 
 //listen event player ready
 function onPlayerReady() {
+  document.title = document.getElementById("ytplayer").title + " - Youtube Iframe Api Test"
   document.getElementById("controls").style = "display: block"
   document.getElementById("play").disabled = false
   document.getElementById("pause").disabled = true
@@ -190,7 +191,7 @@ function onPlayerReady() {
 //for volume change
 function volume_yt_change() {
   player.setVolume(document.getElementById("volume_yt").value)
-  document.getElementById("display_volume_yt").innerHTML = "volume " + document.getElementById("volume_yt").value + " : "
+  document.getElementById("display_volume_yt").innerHTML = "volume " + document.getElementById("volume_yt").value + "% : "
 }
 
 //for time change

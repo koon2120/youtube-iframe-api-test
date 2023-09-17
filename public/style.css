@@ -2,6 +2,7 @@ body {
     background-color: black;
     color: white;
     font-family: 'Poppins', sans-serif;
+    text-align: center;
 }
 
 #controls {
@@ -20,4 +21,13 @@ body {
 
 button,input {
     font-family: 'Poppins', sans-serif;
+}
+
+.inline {
+    display: inline;
+}
+
+.inline_br {
+    display: inline;
+    font-size: 24px;
 }
