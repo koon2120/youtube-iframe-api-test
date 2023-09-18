@@ -175,7 +175,6 @@ function onPlayerStateChange(event) {
 
 //listen event player ready
 function onPlayerReady() {
-  document.title = document.getElementById("ytplayer").title + " - Youtube Iframe Api Test"
   document.getElementById("controls").style = "display: block"
   document.getElementById("play").disabled = false
   document.getElementById("pause").disabled = true
