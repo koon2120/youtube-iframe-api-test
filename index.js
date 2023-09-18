@@ -19,7 +19,8 @@ app.get('/watch', (req, res) => {
       console.log(result)
       res.render("watch", {
         "title":result.title,
-        "thumnail":`https://i.ytimg.com/vi/${req.query["v"]}/maxresdefault.jpg`
+        "thumnail":`https://i.ytimg.com/vi/${req.query["v"]}/maxresdefault.jpg`,
+        "original_url":req.protocol + "://" + req.hostname + req.originalUrl
       })
     }
     testt()
