@@ -14,14 +14,21 @@ app.get('/', (req, res) => {
 app.get('/watch', (req, res) => {
   if (req.query["v"] != undefined) {
     async function testt() {
-      let testtt = await fetch(`https://www.youtube.com/oembed?format=json&url=https://www.youtube.com/watch?v=${req.query["v"]}`)
-      let result = await testtt.json()
-      console.log(result)
-      res.render("watch", {
-        "title":result.title,
-        "thumnail":`https://i.ytimg.com/vi/${req.query["v"]}/maxresdefault.jpg`,
-        "original_url":req.protocol + "://" + req.hostname + req.originalUrl
-      })
+      try {
+        let req_video_data = await fetch(`https://www.youtube.com/oembed?format=json&url=https://www.youtube.com/watch?v=${req.query["v"]}`)
+        let req_video_data_result = await req_video_data.json()
+        res.render("watch", {
+          "title": req_video_data_result.title,
+          "thumnail": `https://i.ytimg.com/vi/${req.query["v"]}/maxresdefault.jpg`,
+          "original_url": req.protocol + "://" + req.hostname + req.originalUrl
+        })
+      } catch {
+        res.render("not_found", {
+          "title": "404 Not Found",
+          "thumnail": req.protocol + "://" + req.hostname + "/static/og-cover.png",
+          "original_url": req.protocol + "://" + req.hostname + req.originalUrl
+        })
+      }
     }
     testt()
   } else {
@@ -29,7 +36,7 @@ app.get('/watch', (req, res) => {
   }
 })
 
-app.get("/*", (req,res) => {
+app.get("/*", (req, res) => {
   res.redirect("/")
 })
 

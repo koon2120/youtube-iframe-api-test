@@ -4,6 +4,8 @@
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<title><%= title %> - Youtube Iframe Api Test</title>
+		<link rel="preload" href="/static/style.css">
+		<link rel="preload" href="/static/script.js">
 		<link rel="stylesheet" href="/static/style.css">
 		<link rel="preconnect" href="https://fonts.googleapis.com">
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -25,43 +27,37 @@
 	<body>
 		<div class="bg"></div>
 		<img class="bg_image" src="<%= thumnail %>" alt="<%= title %>">
-		<br>
-		<div>
-			<label for="video_source" >youtube video id or url : </label>
-			<input title="Example: bHQqvYy5KYo, https://www.youtube.com/watch?v=bHQqvYy5KYo" type="text" name="video_source" id="video_source">
-			<input onclick="videoid_yt_enter()" type="button" value="ok"><br><br>
+		<div class="top">
+			<label class="text" for="video_source" >YOUTUBE VIDEO ID OR URL : </label>
+			<input class="input top_input" title="Example: bHQqvYy5KYo, https://www.youtube.com/watch?v=bHQqvYy5KYo" type="text" name="video_source" id="video_source">
+			<input class="button" onclick="videoid_yt_enter()" type="button" value="GO!">
 		</div>
-		<div id="ytplayer"></div><br><br>
+		<div id="ytplayer"></div>
 		<div id="controls">
-			<div>
-				<label for="scroll_yt" id="display_scroll_yt">00:00:00 of 00:00:00 : </label>
-				<input type="range" name="scroll_yt" id="scroll_yt" min="0" max="100" value="0" style="width: 500px;" onmousedown="scroll_yt_down()" onmouseup="scroll_yt_up()" onchange="scroll_yt_change()"><br>
+			<div class="time">
+				<p class="text" id="display_scroll_yt">00:00:00 - 00:00:00</p>
+				<input class="range" type="range" name="scroll_yt" id="scroll_yt" min="0" max="100" value="0" style="width: 500px;" onmousedown="scroll_yt_down()" onmouseup="scroll_yt_up()" onchange="scroll_yt_change()">
 			</div>
-			<div>
-				<button id="play" onclick="playvideo_yt()">play</button>
-				<button id="pause" onclick="pausevideo_yt()">pause</button>
-				<button id="mute" onclick="mute_video_yt()">mute</button>
-				<button id="unmute" onclick="unmute_video_yt()">unmute</button>
-				<button id="back_to_start" onclick="back_to_start_yt()">back to start</button>
-				<button id="go_to_end" onclick="go_to_end_yt()">go to end</button><br>
-			</div>
-			<div class="inline">
-				<label for="loop_yt">loop : </label>
-				<input type="checkbox" name="loop_yt" onclick="loop_video_yt()" id="loop_yt">
-				<p class="inline_br"> | </p>
+			<div class="controls_button">
+				<button class="button cb_in" id="play" onclick="playvideo_yt()" title="play"><img src="/static/play.png" width="15px"></button>
+				<button class="button cb_in" id="pause" onclick="pausevideo_yt()" title="pause"><img src="/static/pause.png" width="15px"></button>
+				<button class="button cb_in" id="mute" onclick="mute_video_yt()" title="mute"><img src="/static/mute.png" width="15px"></button>
+				<button class="button cb_in" id="unmute" onclick="unmute_video_yt()" title="unmute"><img src="/static/unmute.png" width="15px"></button>
+				<button class="button cb_in" id="back_to_start" onclick="back_to_start_yt()" title="back to start"><img src="/static/back.png" width="15px"></button>
+				<button class="button cb_in" id="go_to_end" onclick="go_to_end_yt()" title="go to end"><img src="/static/skip.png" width="15px"></button>
+				<button id="loop_yt" class="button cb_in" onclick="loop_video_yt()"><img src="/static/loop.png" width="15px"></button>
 			</div>
 			<div class="inline">
-				<label for="volume_yt" id="display_volume_yt">volume 0% : </label>
-				<input type="range" name="volume_yt" id="volume_yt" min="0" max="100" value="100" onchange="volume_yt_change()">
-				<p class="inline_br"> | </p>
+				<label class="text" for="volume_yt" id="display_volume_yt">volume 100% : </label>
+				<input class="range" type="range" name="volume_yt" id="volume_yt" min="0" max="100" value="100" onchange="volume_yt_change()">
 			</div>
 			<div class="inline">
-				<label for="video_timed">video time : </label>
-				<input type="number" name="video_timed" id="video_timed">
-				<input type="button" value="go" onclick="video_timed_change()">
+				<label class="text" for="video_timed">video time : </label>
+				<input class="input" type="number" name="video_timed" title="Example: 10, 102" id="video_timed">
+				<input class="button" type="button" value="GO!" onclick="video_timed_change()">
 			</div>
 		</div>
-		<br><a class="source_link" href="https://developers.google.com/youtube/iframe_api_reference" target="_blank">YouTube Player API Reference for iframe Embeds</a>
+		<a id="source_link" href="https://developers.google.com/youtube/iframe_api_reference" target="_blank">YouTube Player API Reference for iframe Embeds</a>
 		<script src="/static/script.js"></script>
 	</body>
 </html>

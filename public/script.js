@@ -15,10 +15,10 @@ let video_loop_status = false
 if (url_params.get("loop")) {
   if (url_params.get("loop") == "true") {
     video_loop_status = true
-    document.getElementById("loop_yt").checked = true
+    document.getElementById("loop_yt").style.backgroundColor = "#c2c2c2"
   } else if (url_params.get("loop") == "false") {
     video_loop_status = false
-    document.getElementById("loop_yt").checked = false
+    document.getElementById("loop_yt").style.backgroundColor = "#ffffff"
   }
 }
 
@@ -82,9 +82,9 @@ function onYouTubePlayerAPIReady() {
         var time = Math.floor(data.info.currentTime);
         if (time !== lastTimeUpdate) {
           lastTimeUpdate = time;
-          document.getElementById("display_scroll_yt").innerHTML = String(lastTimeUpdate).toHHMMSS() + " of " + String(player.getDuration()).toHHMMSS() + " : ";
+          document.getElementById("display_scroll_yt").innerHTML = String(lastTimeUpdate).toHHMMSS() + " - " + String(player.getDuration()).toHHMMSS();
           if (scroll_focus == false) {
-            document.getElementById("scroll_yt").value = Math.floor((lastTimeUpdate/player.getDuration())*100)
+            document.getElementById("scroll_yt").value = Math.floor((lastTimeUpdate / player.getDuration()) * 100)
           }
         }
       }
@@ -96,6 +96,8 @@ function onYouTubePlayerAPIReady() {
 function videoid_yt_enter() {
   if (document.getElementById("video_source").value.length == 11) {
     window.location.replace("http://" + window.location.hostname + "/watch?v=" + document.getElementById("video_source").value)
+  } else if (document.getElementById("video_source").value.slice(0, 17) == "https://youtu.be/") {
+    window.location.replace("http://" + window.location.hostname + "/watch?v=" + document.getElementById("video_source").value.slice(17, 28))
   } else if (document.getElementById("video_source").value.slice(0, 32) == "https://www.youtube.com/watch?v=") {
     window.location.replace("http://" + window.location.hostname + "/watch?v=" + document.getElementById("video_source").value.slice(32, 43))
   }
@@ -103,7 +105,7 @@ function videoid_yt_enter() {
 
 //for scroll video change
 function scroll_yt_change() {
-  player.seekTo(Math.floor((document.getElementById("scroll_yt").value/100)*player.getDuration()),true)
+  player.seekTo(Math.floor((document.getElementById("scroll_yt").value / 100) * player.getDuration()), true)
 }
 
 function scroll_yt_down() {
@@ -126,7 +128,13 @@ function pausevideo_yt() {
 
 //for loop video
 function loop_video_yt() {
-  video_loop_status = document.getElementById("loop_yt").checked
+  if (video_loop_status == false) {
+    video_loop_status = true
+    document.getElementById("loop_yt").style.backgroundColor = "#c2c2c2"
+  } else if (video_loop_status == true) {
+    video_loop_status = false
+    document.getElementById("loop_yt").style.backgroundColor = "#ffffff"
+  }
 }
 
 //for mute video
@@ -176,6 +184,7 @@ function onPlayerStateChange(event) {
 //listen event player ready
 function onPlayerReady() {
   document.getElementById("controls").style = "display: block"
+  document.getElementById("source_link").style = "display: block"
   document.getElementById("play").disabled = false
   document.getElementById("pause").disabled = true
   if (player.isMuted() == true) {
