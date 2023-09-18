@@ -9,14 +9,15 @@ body {
     display: none;
 }
 
-.source {
-    text-decoration: none;
+.source_link {
     color: #ffffff;
+    text-decoration: none;
+    font-size: 10px;
     transition: 0.2s;
 }
 
-.source:hover {
-    color: #bebebe;
+.source_link:hover {
+    color: #bfc4e4;
 }
 
 button,input {

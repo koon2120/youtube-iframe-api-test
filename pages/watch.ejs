@@ -3,29 +3,30 @@
 	<head>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<title>Youtube Iframe Api Test</title>
+		<title><%= title %> - Youtube Iframe Api Test</title>
 		<link rel="stylesheet" href="/static/style.css">
 		<link rel="preconnect" href="https://fonts.googleapis.com">
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 		<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap" rel="stylesheet">
 		<link rel="shortcut icon" href="/static/yiat-logo.png" type="image/x-icon">
 		<meta name="description" content="test for youtube iframe api by koon2120" />
-		<meta property="og:title" content="Youtube Iframe Api Test" />
+		<meta property="og:title" content="<%= title %> - Youtube Iframe Api Test" />
 		<meta property="og:description" content="test for youtube iframe api by koon2120" />
 		<meta property="og:type" content="website" />
 		<meta property="og:url" content="https://youtube-iframe-api-test.vercel.app/" />
 		<meta property="og:site_name" content="Youtube Iframe Api Test" />
-		<meta property="og:image" content="https://youtube-iframe-api-test.vercel.app/static/yiat-logo-bg-black.png" />
+		<meta property="og:image" content="<%= thumnail %>" />
 		<meta name="twitter:card" content="summary_large_image" />
-		<meta name="twitter:title" content="Youtube Iframe Api Test" />
+		<meta name="twitter:title" content="<%= title %> - Youtube Iframe Api Test" />
 		<meta name="twitter:description" content="test for youtube iframe api by koon2120" />
 		<meta name="twitter:url" content="https://youtube-iframe-api-test.vercel.app/" />
-		<meta name="twitter:image" content="https://youtube-iframe-api-test.vercel.app/static/yiat-logo-bg-black.png" />
+		<meta name="twitter:image" content="<%= thumnail %>" />
 	</head>
 	<body>
-		<div title="Example: bHQqvYy5KYo, https://www.youtube.com/watch?v=bHQqvYy5KYo">
+		<br>
+		<div>
 			<label for="video_source" >youtube video id or url : </label>
-			<input type="text" name="video_source" id="video_source">
+			<input title="Example: bHQqvYy5KYo, https://www.youtube.com/watch?v=bHQqvYy5KYo" type="text" name="video_source" id="video_source">
 			<input onclick="videoid_yt_enter()" type="button" value="ok"><br><br>
 		</div>
 		<div id="ytplayer"></div><br><br>
@@ -58,7 +59,7 @@
 				<input type="button" value="go" onclick="video_timed_change()">
 			</div>
 		</div>
-		<br><a class="source" href="https://developers.google.com/youtube/iframe_api_reference" target="_blank">source : https://developers.google.com/youtube/iframe_api_reference</a>
+		<br><a class="source_link" href="https://developers.google.com/youtube/iframe_api_reference" target="_blank">YouTube Player API Reference for iframe Embeds</a>
 		<script src="/static/script.js"></script>
 	</body>
 </html>
